@@ -4,16 +4,14 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 const routes: Routes = [
-
-  	{
-      path: '',
-      component: AuthLayoutComponent,
-      children: [
-        { path: 'login', component: LoginPageComponent },
-        { path: '**', redirectTo: 'login' }
-      ]
-    }
-
+  {
+    path: '',
+    component: AuthLayoutComponent,
+    children: [
+      { path: 'login', component: LoginPageComponent },
+      { path: '**', redirectTo: 'login' }
+    ]
+  }
 ];
 
 @NgModule({
