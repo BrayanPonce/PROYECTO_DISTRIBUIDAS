@@ -1,0 +1,21 @@
+section {
+    background-image: url('/assets/images/Fondo-Clinica.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    grid-template-columns: auto 1fr;
+}
+
+main.card {
+    background-color: #ffffff9f !important;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+nav span {
+    color: #6C757D;
+}

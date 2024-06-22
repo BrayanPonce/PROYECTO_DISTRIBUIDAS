@@ -1,0 +1,12 @@
+article {
+    color: white;
+}
+
+article p,
+article h1 {
+    margin: 0;
+}
+
+article h1 span {
+    color: #A4C222;
+}
