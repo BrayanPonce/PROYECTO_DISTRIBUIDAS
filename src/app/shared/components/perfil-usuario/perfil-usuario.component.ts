@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, EventEmitter, HostListener, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HomeRoutingModule } from 'src/app/home/home-routing.module';
+import { HomeRoutingModule } from 'src/app/module/home/home-routing.module';
 
 interface User {
   name: string;

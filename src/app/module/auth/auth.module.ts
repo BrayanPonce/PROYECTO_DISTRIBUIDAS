@@ -5,7 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LogoNegocioComponent } from '../shared/components/logo-negocio/logo-negocio.component';
+import { LogoNegocioComponent } from '../../shared/components/logo-negocio/logo-negocio.component';
 
 
 @NgModule({
