@@ -1,0 +1,12 @@
+section {
+  background-image: url('/assets/images/Fondo-Clinica.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (width > 768px) {
+  section {
+    gap: 74px !important;
+  }
+}

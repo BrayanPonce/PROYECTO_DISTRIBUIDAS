@@ -1,0 +1,57 @@
+aside {
+    grid-template-rows: auto auto 1fr auto;
+}
+
+hr {
+    border: solid 1.5px #96b11e;
+    width: 100%;
+    margin: 0 0 0.5rem 0;
+}
+
+aside>ul li {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    transition: background-color 0.3s ease-out;
+    -webkit-transition: background-color 0.3s ease-out;
+    -moz-transition: background-color 0.3s ease-out;
+    -ms-transition: background-color 0.3s ease-out;
+    -o-transition: background-color 0.3s ease-out;
+}
+
+aside>ul li:not(:has(a.disable)):hover {
+    background-color: #20c9961c;
+}
+
+aside>ul li:not(:has(a.disable)):active {
+    background-color: #20c99681;
+}
+
+aside>ul li:has(a.active) {
+    background-color: #20c99642;
+}
+
+aside>ul a {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+aside>ul li:has(a.disable) {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+aside ul a span {
+    color: #f8f9fa;
+}

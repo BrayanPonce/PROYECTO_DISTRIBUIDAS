@@ -1,0 +1,37 @@
+#container-modal {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  background: #17171780;
+  backdrop-filter: blur(2px);
+}
+
+#modal {
+  position: static;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+div:has(> svg) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+svg {
+  cursor: pointer;
+}
+
+svg:hover path {
+  fill: #082f49;
+  stroke: #082f49;
+}

@@ -1,0 +1,11 @@
+input[type="date"] {
+  color: #020101; /* Cambia el color del texto */
+  background-color: #5fc29058; /* Cambia el color de fondo */
+  border: 1px solid #5fc29058; /* Cambia el color del borde */
+  width: 250px; /* Ancho del input */
+  height: 50px; /* Alto del input */
+  font-size: 18px; /* Tamaño de la fuente */
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Invierte el color del icono del calendario */
+}

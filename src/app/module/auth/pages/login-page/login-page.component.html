@@ -1,0 +1,38 @@
+<div class="card border-gray-personality">
+    <form [formGroup]="user" (ngSubmit)="login()" class="card-body d-grid">
+        <label class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Ingrese Usuario" formControlName="username">
+            <span class="input-group-text">@</span>
+        </label>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="password" formControlName="password" #password>
+            <span class="input-group-text d-flex justify-content-center align-items-center"
+                (click)="togglePasswordVisibility()">
+                <div *ngIf="!isViewPassword; else elseBlock" class="d-flex justify-content-center align-items-start">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_521_37)">
+                            <path
+                                d="M8.00002 3C4.66669 3 1.82002 5.07333 0.666687 8C1.82002 10.9267 4.66669 13 8.00002 13C11.3334 13 14.18 10.9267 15.3334 8C14.18 5.07333 11.3334 3 8.00002 3ZM8.00002 11.3333C6.16002 11.3333 4.66669 9.84 4.66669 8C4.66669 6.16 6.16002 4.66667 8.00002 4.66667C9.84002 4.66667 11.3334 6.16 11.3334 8C11.3334 9.84 9.84002 11.3333 8.00002 11.3333ZM8.00002 6C6.89335 6 6.00002 6.89333 6.00002 8C6.00002 9.10667 6.89335 10 8.00002 10C9.10669 10 10 9.10667 10 8C10 6.89333 9.10669 6 8.00002 6Z"
+                                fill="#6C757D" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_521_37">
+                                <rect width="16" height="16" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <ng-template #elseBlock>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 2L14 14" stroke="#6C757D" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3.59994 4.15332C3.3066 4.37332 3.03794 4.60532 2.79327 4.84132C1.97605 5.63478 1.29954 6.56129 0.792602 7.58132C0.729222 7.71166 0.696289 7.85471 0.696289 7.99965C0.696289 8.14459 0.729222 8.28763 0.792602 8.41798C1.29928 9.43819 1.97556 10.3649 2.7926 11.1586C3.95994 12.282 5.6786 13.3333 7.99994 13.3333C9.4906 13.3333 10.7333 12.9 11.7399 12.292L9.1106 9.66332C8.72588 9.9203 8.26395 10.036 7.80352 9.99057C7.34309 9.94519 6.91264 9.74158 6.58549 9.41443C6.25834 9.08728 6.05473 8.65682 6.00935 8.19639C5.96396 7.73596 6.07962 7.27404 6.3366 6.88932L3.6006 4.15265L3.59994 4.15332ZM13.7773 10.5586C14.3438 9.90962 14.8244 9.19038 15.2073 8.41865C15.2706 8.2883 15.3036 8.14526 15.3036 8.00032C15.3036 7.85538 15.2706 7.71233 15.2073 7.58198C14.7006 6.56176 14.0243 5.63502 13.2073 4.84132C12.0399 3.71798 10.3219 2.66665 7.99994 2.66665C7.36803 2.66505 6.73866 2.74641 6.12794 2.90865L13.7773 10.5586Z"
+                            fill="#6C757D" />
+                    </svg>
+                </ng-template>
+            </span>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Sing Up" [disabled]="user.invalid">
+    </form>
+</div>
