@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SesionesComponent } from './sesiones.component';
+import { SesionComponent } from './sesion.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SesionesComponent
+    component: SesionComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SesionesRoutingModule { }
+export class SesionRoutingModule { }

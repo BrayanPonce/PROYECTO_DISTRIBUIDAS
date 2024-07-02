@@ -1,0 +1,13 @@
+<section class="d-grid gap-2">
+    <article class="d-flex gap-2 align-items-center">
+        <img src="assets/icons/card-checklist.png" alt="icono del checklist para historia clinica">
+        <span>Historia Clínica</span>
+        <button class="btn btn-primary ms-auto">Agregar</button>
+    </article>
+    <main class="d-grid">
+        <span>Sesiones:</span>
+        <div class="container-sesiones">
+            <app-card-sesion *ngFor="let sension of sesiones"></app-card-sesion>
+        </div>
+    </main>
+</section>

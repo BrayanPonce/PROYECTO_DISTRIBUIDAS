@@ -1,0 +1,15 @@
+section>div>span,
+main>span {
+    font-weight: 600;
+}
+
+article>p {
+    font-weight: 500;
+}
+
+.container-sesiones {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(auto, 1fr));
+}

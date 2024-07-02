@@ -1,0 +1,25 @@
+section>div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+}
+
+section>div>div {
+    grid-template-columns: 1fr 1fr;
+}
+
+section>div>div>article {
+    font-weight: 500;
+}
+
+@media (width > 1000px) {
+    section>div>div {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (width > 1600px) {
+    section>div>div {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

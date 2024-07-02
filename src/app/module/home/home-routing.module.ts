@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { BreadcrumbComponent } from 'src/app/shared/components/breadcrumb/breadcrumb.component';
 
 const routes: Routes = [
   {
@@ -13,15 +14,26 @@ const routes: Routes = [
       },
       {
         path: 'paciente',
-        loadChildren: () => import('../paciente/paciente.module').then(m => m.PacienteModule)
-      },
-      {
-        path: 'iclinico',
-        loadChildren: () => import('../iclinico/iclinico.module').then(m => m.IClinicoModule)
-      },
-      {
-        path: 'sesiones',
-        loadChildren: () => import('../sesiones/sesiones.module').then(m => m.SesionesModule)
+        component: BreadcrumbComponent,
+        children: [
+          {
+            path: 'asd',
+            loadChildren: () => import('../paciente/paciente.module').then(m => m.PacienteModule)
+          },
+          {
+            path: 'historial-clinico',
+            loadChildren: () => import('../iclinico/iclinico.module').then(m => m.IClinicoModule)
+          },
+          {
+            path: 'historial-clinico/sesion',
+            loadChildren: () => import('../sesion/sesion.module').then(m => m.SesionModule)
+          },
+          {
+            path: '**',
+            redirectTo: 'historial-clinico',
+            pathMatch: 'full'
+          }
+        ]
       },
       {
         path: 'pagos',
