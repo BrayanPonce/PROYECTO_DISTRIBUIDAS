@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Paciente } from 'src/app/core/index.model.interface';
+import { Breadcrumb } from 'src/app/core/index.model.system';
+import { BreadcrumbService } from 'src/app/core/index.service.triggers';
 import { PacienteService } from 'src/app/core/services/paciente.service';
 import { RegisterPacientService } from 'src/app/shared/components/register-pacient/register-pacient.service';
 
@@ -10,7 +12,9 @@ import { RegisterPacientService } from 'src/app/shared/components/register-pacie
   styleUrls: ['./paciente.component.css']
 })
 export class PacienteComponent {
-
+  listBreadcrumb: Breadcrumb[] = [
+    { name: 'Lista de pacientes', route: '/home/paciente' },
+  ];
   pacientes: Paciente[] = [];
   filteredPacientes: Paciente[] = [];
   selectedPaciente: any;
@@ -22,8 +26,9 @@ export class PacienteComponent {
 
   constructor(
     private registerSrv: RegisterPacientService,
-    private PacienteSrv:PacienteService
-  ) {  }
+    private PacienteSrv: PacienteService,
+    private breadcrumbSrv: BreadcrumbService
+  ) { }
 
   public WatchData(): void {
     this.registerSrv.activarModal$.emit(true);
@@ -31,19 +36,20 @@ export class PacienteComponent {
 
   ngOnInit(): void {
 
-     this.modalPacienteSubcription = this.registerSrv.activarModal$.subscribe(activate => {
+    this.modalPacienteSubcription = this.registerSrv.activarModal$.subscribe(activate => {
       this.activarModalPaciente = activate
-     })
+    })
 
-          // Listar pacientes
+    this.breadcrumbSrv.defineBreadcrumb(this.listBreadcrumb);
+    // Listar pacientes
     this.PacienteSrv.listarpacientes()
-    .subscribe(data => {
-      this.pacientes = data;
-      this.filteredPacientes = [...this.pacientes];  // Copia inicial para filtrar
-      console.log('Pacientes:', this.pacientes);  // Verifica que los datos están llegando
-    }, error => {
-      console.error('Error al listar pacientes:', error);
-    });
+      .subscribe(data => {
+        this.pacientes = data;
+        this.filteredPacientes = [...this.pacientes];  // Copia inicial para filtrar
+        console.log('Pacientes:', this.pacientes);  // Verifica que los datos están llegando
+      }, error => {
+        console.error('Error al listar pacientes:', error);
+      });
 
 
   }

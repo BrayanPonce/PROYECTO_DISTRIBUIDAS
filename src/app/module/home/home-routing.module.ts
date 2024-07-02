@@ -17,7 +17,7 @@ const routes: Routes = [
         component: BreadcrumbComponent,
         children: [
           {
-            path: 'asd',
+            path: '',
             loadChildren: () => import('../paciente/paciente.module').then(m => m.PacienteModule)
           },
           {
