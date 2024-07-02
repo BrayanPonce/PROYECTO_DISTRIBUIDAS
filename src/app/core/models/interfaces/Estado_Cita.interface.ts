@@ -1,6 +1,6 @@
 export interface Estado_Cita{
 
-  idesci?: number;
-  nombreestado: string;
+  id_estado_cita?: number;
+  nombre_estado: string;
 
 }

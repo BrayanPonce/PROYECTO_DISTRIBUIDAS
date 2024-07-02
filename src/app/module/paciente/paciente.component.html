@@ -1,1 +1,77 @@
-<p>paciente works!</p>
+<div class="container mt-4">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="button-addon2">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+    <button class="btn btn-primary ms-2" type="button" (click)="WatchData()">Registrar</button>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Documento de Identidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pacientes; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.apellido }}</td>
+        <td>{{ item.correo }}</td>
+        <td>
+          <span >
+            {{ item.ndoc_documento }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+<app-register-pacient *ngIf="activarModalPaciente">
+  <div class="container border border-warning">
+    <h1>Registrar Paciente Nuevo</h1>
+    <div class="scrollable-content">
+      <div class="form-group row mb-4">
+        <label for="nombreInput" class="col-sm-4 col-form-label text-end">Nombre Completo</label>
+        <div class="col-sm-8">
+          <input type="text" id="nombreInput" class="form-control" placeholder="Nombre Completo">
+        </div>
+      </div>
+      <div class="form-group row mb-4">
+        <label for="dniInput" class="col-sm-4 col-form-label text-end">DNI</label>
+        <div class="col-sm-8">
+          <input type="text" id="dniInput" class="form-control" placeholder="DNI">
+        </div>
+      </div>
+      <div class="form-group row mb-4">
+        <label for="telefonoInput" class="col-sm-4 col-form-label text-end">Télefono</label>
+        <div class="col-sm-8">
+          <input type="text" id="telefonoInput" class="form-control" placeholder="Teléfono">
+        </div>
+      </div>
+      <div class="form-group row mb-4">
+        <label for="correoInput" class="col-sm-4 col-form-label text-end">Correo</label>
+        <div class="col-sm-8">
+          <input type="text" id="correoInput" class="form-control" placeholder="Correo">
+        </div>
+      </div>
+      <div class="form-group row mb-4">
+        <label for="edadInput" class="col-sm-4 col-form-label text-end">Edad</label>
+        <div class="col-sm-8">
+          <input type="text" id="edadInput" class="form-control" placeholder="Edad">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary">Agregar</button>
+  </div>
+</app-register-pacient>
+

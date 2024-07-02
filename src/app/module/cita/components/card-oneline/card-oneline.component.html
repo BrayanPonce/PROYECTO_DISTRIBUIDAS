@@ -1,4 +1,4 @@
-<article class="d-flex justify-content-around align-items-center p-lg-0 m-0">
+<article class="d-flex justify-content-around align-items-center p-lg-0 m-0" *ngFor="let i of citas">
   <div class="d-flex gap-3 align-items-center text-center">
     <div>
       <figure style="height: 10rem; width: 15rem;">
@@ -6,16 +6,16 @@
       </figure>
     </div>
     <div class="p-md-2 flex-grow-1 ms-3">
-      <h6 class="m-0">Brayan Ponce Chupapi</h6>
+      <h6 class="m-0">{{ i?.idpaciente?.nombre }}</h6>
       <div class="p-md-1">
-        <p class="">DNI</p>
-        <p class="m-0">Celular</p>
+        <p class="">{{i?.idpaciente?.ndoc_documento}}</p>
+        <p class="m-0">{{i?.idpaciente?.telefeno}}</p>
       </div>
     </div>
-    <span>hora</span>
+    <span>{{i?.tipo}}</span>
   </div>
   <div class="text-center p-md-5 d-flex justify-content-evenly">
-    <p class="m-0">estado</p>
+    <p class="m-0">{{i?.estadoCita?.nombre_estado}}</p>
   </div>
 </article>
 
