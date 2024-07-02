@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ModalService } from 'src/app/module/cita/components/modal/modal.service';
 import { RegisterPacientService } from './register-pacient.service';
 
 @Component({
