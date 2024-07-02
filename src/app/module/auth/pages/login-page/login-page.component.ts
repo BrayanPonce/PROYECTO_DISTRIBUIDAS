@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotifyService } from 'src/app/core/index.service.triggers';
 
 @Component({
   selector: 'app-login-page',
@@ -16,7 +17,8 @@ export class LoginPageComponent implements AfterViewInit {
   });
 
   constructor(
-    private router: Router
+    private router: Router,
+    private notifySrv: NotifyService
   ) { }
 
   ngAfterViewInit(): void {
@@ -39,7 +41,10 @@ export class LoginPageComponent implements AfterViewInit {
     if (value.username == "clinica.josue" && value.password == "terapia123") {
       this.router.navigate(['home']);
     } else {
-      alert("Credenciales incorrectas");
+      this.notifySrv.addNotification({
+        status: 'error',
+        message: 'Credenciales incorrectas'
+      });
     }
   }
 }

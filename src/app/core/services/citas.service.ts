@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environment/producto';
-import { Cita } from '../models';
+import { Cita } from '../index.model.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,18 +15,18 @@ export class CitasService {
 
   ////////////////////////////////////////////////////
 
-  listarCitas  (): Observable<Cita[]> {
+  listarCitas(): Observable<Cita[]> {
     return this.http.get<Cita[]>(`${this.CITAURL}/all`);
   }
 
-  buscarCita (cita: Cita): Observable<Cita> {
+  buscarCita(cita: Cita): Observable<Cita> {
 
     const url = `${this.CITAURL}/one/${cita.idcita}`;
 
     return this.http.get<Cita>(url);
   }
 
-  buscarCitaPorPaciente (cita: Cita): Observable<Cita[]> {
+  buscarCitaPorPaciente(cita: Cita): Observable<Cita[]> {
     const url = `${this.CITAURL}/buscar-my-citas/${cita.idpaciente}`;
     return this.http.get<Cita[]>(url);
 
