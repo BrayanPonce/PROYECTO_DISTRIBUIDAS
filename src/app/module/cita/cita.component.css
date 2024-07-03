@@ -1,6 +1,5 @@
 .search_select_box select{
     background-color: #080342;
-
 }
 
 .custom-dropdown {
@@ -72,8 +71,24 @@
   height: 100%;
   width: 30%; /* Ajusta el ancho del modal según sea necesario */
   background: white;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: -2px 0 5px rgba(199, 52, 52, 0.5);
   overflow-y: auto;
   overflow-x: hidden;
+  border-radius: 30px;
 }
 
+.agregar{
+  align-items: center;
+  text-align: center;
+  float: center;
+}
+
+.contenido{
+  align-items: center;
+  text-align: center;
+}
+
+.estilo_text{
+  font-size: 30px;
+  font-weight: bold;
+}
