@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { format } from 'date-fns';
 import { Cita } from 'src/app/core/index.model.interface';
-import { CitasService } from 'src/app/core/services/citas.service';
 
 @Component({
   selector: 'app-card-oneline',
@@ -14,5 +13,19 @@ export class CardOnelineComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.citas.forEach(cita => {
+      if (typeof cita.hora === 'string') {
+        cita.hora = new Date(cita.hora);
+      }
+    });
+  }
+
+  formatTime(time: Date | undefined): string {
+    if (!time) {
+      return '';
+    }
+    return format(time, 'p');
+  }
+
 }

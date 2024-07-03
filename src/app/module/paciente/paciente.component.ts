@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Paciente } from 'src/app/core/index.model.interface';
 import { Breadcrumb } from 'src/app/core/index.model.system';
@@ -12,6 +14,28 @@ import { RegisterPacientService } from 'src/app/shared/components/register-pacie
   styleUrls: ['./paciente.component.css']
 })
 export class PacienteComponent {
+
+
+  pacienteForm: FormGroup;
+  // new_paciente: Paciente = {
+  //   idpac: undefined,
+  //   nombre: '',
+  //   apellido: '',
+  //   domicilio: '',
+  //   fecha_nac: new Date(),
+  //   lugar_nac: '',
+  //   telefono: 0,
+  //   residencia: '',
+  //   estado_civil: '',
+  //   n_hijos: 0,
+  //   referencia: '',
+  //   tipo_documento: false,
+  //   ndoc_documento: 0,
+  //   correo: ''
+  // };
+
+
+
   listBreadcrumb: Breadcrumb[] = [
     { name: 'Lista de pacientes', route: '/home/paciente' },
   ];
@@ -27,8 +51,19 @@ export class PacienteComponent {
   constructor(
     private registerSrv: RegisterPacientService,
     private PacienteSrv: PacienteService,
-    private breadcrumbSrv: BreadcrumbService
-  ) { }
+    private breadcrumbSrv: BreadcrumbService,
+    private router: Router,
+    private fb: FormBuilder,
+  ) {
+
+    this.pacienteForm = this.fb.group({
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      ndoc_documento: ['', Validators.required],
+      telefono: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.email]]
+    });
+  }
 
   public WatchData(): void {
     this.registerSrv.activarModal$.emit(true);
@@ -80,4 +115,53 @@ export class PacienteComponent {
       this.showDropdown = false;
     }, 200);
   }
+
+  // newPaciente(): void {
+  //   // Lógica para guardar una cita
+  //   console.log('Paciente Guardado');
+  //   this.PacienteSrv.crearPaciente(this.new_paciente).subscribe({
+  //     next:(data) => {
+  //       console.log(data);
+  //       this.router.navigate(['/home/paciente'])
+  //     },
+  //     error: (er) => {
+  //       console.log(er);
+  //     }
+  //   })
+  // }
+
+  newPaciente(): void {
+    if (this.pacienteForm.valid) {
+      const new_paciente: Paciente = {
+        idpac: undefined,
+        nombre: this.pacienteForm.value.nombre,
+        apellido: this.pacienteForm.value.apellido,
+        domicilio: '',
+        fecha_nac: new Date(),
+        lugar_nac: '',
+        telefono: this.pacienteForm.value.telefono,
+        residencia: '',
+        estado_civil: '',
+        n_hijos: 0,
+        referencia: '',
+        tipo_documento: false,
+        ndoc_documento: this.pacienteForm.value.ndoc_documento,
+        correo: this.pacienteForm.value.correo
+      };
+
+      console.log('Paciente Guardado');
+      this.PacienteSrv.crearPaciente(new_paciente).subscribe({
+        next: (data) => {
+          console.log(data);
+          this.router.navigate(['/home/paciente']);
+        },
+        error: (er) => {
+          console.log(er);
+        }
+      });
+    } else {
+      console.log('Formulario inválido');
+    }
+  }
+
 }

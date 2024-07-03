@@ -22,7 +22,8 @@ import { RegisterPacientComponent } from 'src/app/shared/components/register-pac
     CommonModule,
     CitaRoutingModule,
     ModalComponent,
-    RegisterPacientComponent
+    RegisterPacientComponent,
+    
   ]
 })
 export class CitaModule { }

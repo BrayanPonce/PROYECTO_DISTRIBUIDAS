@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotifyComponent } from './shared/components/notify/notify.component';
 
+import {  ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NotifyComponent } from './shared/components/notify/notify.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NotifyComponent
+    NotifyComponent,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

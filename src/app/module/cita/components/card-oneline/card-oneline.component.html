@@ -1,42 +1,19 @@
-<!-- <<<<<<< HEAD
-<article class="d-flex justify-content-around align-items-center p-lg-0 m-0" *ngFor="let i of citas">
-  <div class="d-flex gap-3 align-items-center text-center">
-    <div>
-      <figure style="height: 10rem; width: 15rem;">
-        <img src="/assets/images/Fondo-Clinica.jpg" alt="card" style="height: 100%; width: 100%" />
-      </figure>
-    </div>
-    <div class="p-md-2 flex-grow-1 ms-3">
-      <h6 class="m-0">{{ i?.idpaciente }}</h6>
-      <div class="p-md-1">
-        <p class="">{{i?.idpaciente?.ndoc_documento}}</p>
-        <p class="m-0">{{i?.idpaciente?.telefeno}}</p>
-      </div>
-    </div>
-    <span>{{i?.tipo}}</span>
+<div class="contenedor-cita" *ngFor="let i of citas">
+  <div>
+      <img src="/assets/images/Fondo-Clinica.jpg" alt="card" class="image"/>
   </div>
-  <div class="text-center p-md-5 d-flex justify-content-evenly">
-    <p class="m-0">{{i?.estadoCita?.nombre_estado}}</p>
-  </div>
-</article>
-======= -->
-<div class="contenedor-cita">
-      <div>
-          <img src="/assets/images/Fondo-Clinica.jpg" alt="card" class="image"/>
-      </div>
-      <div class="p-md-2 flex-grow-1 ms-3" id="info_personal">
-        <h6 class="topi">Brayan Ponce Chupapi</h6>
-        <div class="p-md-1">
-          <p class="">DNI: </p>
-          <p class="m-0">Celular: </p>
-        </div>
-      </div>
-      <span class="">Hora: </span>
-      <span class="">3:00 pm</span>
-
-      <div class="estado">
-        <span class="espacio">Estado: </span>
-        <span class="">Asistido</span>
-      </div>
+  <div class="p-md-2 flex-grow-1 ms-3" id="info_personal">
+    <h6 class="topi"> {{i?.pacienteDTOs?.nombre}} {{i?.pacienteDTOs?.apellido}}</h6>
+    <div class="p-md-1">
+      <p class="">DNI: {{i?.pacienteDTOs?.ndoc_documento}} </p>
+      <p class="m-0">Celular: {{i?.pacienteDTOs?.telefono}} </p>
     </div>
+  </div>
+  <span class="">Hora:  </span>
+  <span class="">{{ formatTime(i?.hora) }}</span>
 
+  <div class="estado">
+    <span class="espacio">Estado: </span>
+    <span class="">Asistido</span>
+  </div>
+</div>

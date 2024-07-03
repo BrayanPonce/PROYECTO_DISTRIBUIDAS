@@ -16,7 +16,7 @@ export class CitasService {
   ////////////////////////////////////////////////////
 
   listarCitas(): Observable<Cita[]> {
-    return this.http.get<Cita[]>(`${this.CITAURL}/all`);
+    return this.http.get<Cita[]>(`${this.CITAURL}/buscar-todas-citas-con-pacientes`);
   }
 
   buscarCita(cita: Cita): Observable<Cita> {
@@ -27,7 +27,7 @@ export class CitasService {
   }
 
   buscarCitaPorPaciente(cita: Cita): Observable<Cita[]> {
-    const url = `${this.CITAURL}/buscar-my-citas/${cita.idpaciente}`;
+    const url = `${this.CITAURL}/buscar-my-citas/${cita.pacienteDTOs}`;
     return this.http.get<Cita[]>(url);
 
   }

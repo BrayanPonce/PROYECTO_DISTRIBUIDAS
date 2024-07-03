@@ -3,9 +3,10 @@ import { Subscription } from 'rxjs';
 import { ModalService } from './components/modal/modal.service';
 import { RegisterPacientService } from 'src/app/shared/components/register-pacient/register-pacient.service';
 import { CitasService } from 'src/app/core/services/citas.service';
-import { Router } from '@angular/router';
 import { Cita, Paciente } from 'src/app/core/index.model.interface';
 import { PacienteService } from 'src/app/core/services/paciente.service';
+import { format } from 'date-fns';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cita',
@@ -18,6 +19,34 @@ export class CitaComponent implements OnInit, OnDestroy {
   filteredPacientes: string[] = [];
   selectedPaciente: any;
   showDropdown = false;
+
+  new_cita: Cita = {
+    idcita: undefined,
+    tipo: '',
+    hora: new Date(),
+    n_sesion: 0,
+    fecha: new Date(),
+    pacienteDTOs: {
+      idpac: undefined,
+      nombre: '',
+      apellido: '',
+      domicilio: '',
+      fecha_nac: new Date(),
+      lugar_nac: '',
+      telefono: 0,
+      residencia: '',
+      estado_civil: '',
+      n_hijos: 0,
+      referencia: '',
+      tipo_documento: false,
+      ndoc_documento: 0,
+      correo: '',
+    },
+    estadoCita: {
+      id_estado_cita: undefined,
+      nombre_estado: '',
+    }
+  };
 
 
   citas:Cita[] = [];
@@ -32,7 +61,8 @@ export class CitaComponent implements OnInit, OnDestroy {
     private modalSrv: ModalService,
     private registerSrv: RegisterPacientService,
     private citaSrv:CitasService,
-    private PacienteSrv:PacienteService
+    private PacienteSrv:PacienteService,
+    private router: Router
   ) {  }
 
     public WatchData(): void {
@@ -49,20 +79,14 @@ export class CitaComponent implements OnInit, OnDestroy {
 
     this.citaSrv.listarCitas()
       .subscribe(data => {
-        this.citas = data;
-        console.log('Citas:', this.citas);  // Verifica que los datos están llegando
-      }, error => {
-        console.error('Error al listar citas:', error);
-      });
+        this.citas = data;})
 
           // Listar pacientes
     this.PacienteSrv.listarpacientes()
     .subscribe(data => {
       this.pacientes = data;
       this.filteredPacientes = this.pacientes.map(paciente => paciente.nombre + " " + paciente.apellido);
-      console.log('Pacientes:', this.pacientes);  // Verifica que los datos están llegando
-    }, error => {
-      console.error('Error al listar pacientes:', error);
+
     });
 
 
@@ -91,4 +115,18 @@ export class CitaComponent implements OnInit, OnDestroy {
       this.showDropdown = false;
     }, 200);
   }
+
+  formatTime(time: string): string {
+    return format(new Date(time), 'p');
+  }
+  // Define tu función sin parámetros
+  GuardarCita(): void {
+    // Lógica para guardar una cita
+    console.log('Cita guardada');
+    this.citaSrv.crearCita(this.new_cita).subscribe(data => {
+      alert('Cita guardada');
+      this.router.navigate(['/cita']);
+    })
+  }
+
 }

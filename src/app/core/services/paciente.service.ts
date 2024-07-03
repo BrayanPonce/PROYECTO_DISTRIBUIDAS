@@ -23,4 +23,9 @@ export class PacienteService {
     return this.http.get<Paciente>(`${this.PACIENTEURL}/one/${id}`);
   }
 
+  crearPaciente(paciente: Paciente): Observable<Paciente> {
+    return this.http.post<Paciente>(`${this.PACIENTEURL}/save`, paciente);
+  }
+
 }
+

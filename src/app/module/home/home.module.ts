@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { SidebarComponent } from '../../shared/components/sidebar/sidebar.component';
-
 @NgModule({
   declarations: [
     HomeComponent
@@ -11,7 +10,7 @@ import { SidebarComponent } from '../../shared/components/sidebar/sidebar.compon
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SidebarComponent
+    SidebarComponent,
   ]
 })
 export class HomeModule { }
