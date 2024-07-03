@@ -5,7 +5,46 @@ input[type="date"] {
   width: 250px; /* Ancho del input */
   height: 50px; /* Alto del input */
   font-size: 18px; /* Tamaño de la fuente */
+  margin-left: 10px;
+  margin-top: 3.5%;
+  border-radius: 10px;
+  text-align: center;
 }
+
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1); /* Invierte el color del icono del calendario */
+}
+
+.header_1{
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.header_2 {
+  background: rgba(255, 255, 255, 0.45);
+  text-align: left;
+  border-radius: 40px;
+  height: 70px;
+}
+
+.fecha{
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+.boton_agregar{
+  height: 40px;
+  background: rgba(29, 36, 209, 0.88);
+  float: right;
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+  border: none;
+  width: 140px;
+  margin-top: 14px;
+  margin-right: 30px;
+}
+
+.fech{
+  margin-right: 10px;
 }

@@ -50,7 +50,7 @@
             <input type="text" id="tipoInput" class="form-control" placeholder="Tipo">
           </div>
         </div>
-        <div class="d-flex justify-content-end">
+        <div class="agregar">
           <button class="btn btn-primary"><strong>Agregar</strong></button>
         </div>
       </div>
@@ -59,9 +59,11 @@
 </section>
 
 <app-register-pacient *ngIf="activarModalPaciente">
-  <div class="container border border-warning">
-    <h1>Registrar Paciente Nuevo</h1>
-    <div class="scrollable-content">
+  <div>
+    <div class="agregar">
+      <h1 class="estilo_text">Registrar Paciente Nuevo</h1>
+    </div>
+    <div class="contenido">
       <div class="form-group row mb-4">
         <label for="nombreInput" class="col-sm-4 col-form-label text-end">Nombre Completo</label>
         <div class="col-sm-8">
@@ -95,7 +97,7 @@
     </div>
   </div>
 
-  <div class="modal-footer">
+  <div class="agregar">
     <button type="button" class="btn btn-primary">Agregar</button>
   </div>
 </app-register-pacient>

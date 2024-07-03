@@ -1,12 +1,16 @@
 <!-- Header Component -->
-<header class="d-flex justify-content-around p-4">
-  <div class="d-flex justify-content-around gap-3 p-md-2 w-100">
-    <label class="d-flex gap-lg-5 align-items-center me-3">
-      <span class="form-label h3 p-1 m-2">Fecha:</span>
-      <input class="form-control text-center m-2" type="date" #Date />
+<header>
+  <div class="header_1">
+    <span>Home/</span>
+    <span>Citas</span>
+  </div>
+  <div class="header_2">
+    <label>
+      <span class="fecha">Fecha:</span>
+      <input class="fech" type="date" #Date />
     </label>
     <!-- Botón para activar el modal -->
-    <button type="button" class="btn btn-primary" (click)="watchData()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button type="button" class="boton_agregar" (click)="watchData()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       Agendar Cita
     </button>
 
