@@ -51,7 +51,13 @@ export class PacienteComponent {
         console.error('Error al listar pacientes:', error);
       });
 
-
+    this.PacienteSrv.getPaciente(1) // Obtener un paciente por su ID
+      .subscribe(data => {
+        this.selectedPaciente = data;
+        console.log('Paciente:', this.selectedPaciente);  // Verifica que los datos están llegando
+      }, error => {
+        console.error('Error al buscar paciente:', error);
+      });
   }
 
   ngOnDestroy(): void {

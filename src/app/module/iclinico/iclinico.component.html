@@ -7,31 +7,27 @@
         <div class="d-grid gap-2">
             <article class="bg-white rounded-5 py-3 px-4">
                 <h6 class="m-0 text-secondary">Nombres</h6>
-                <p class="m-0">Brayan Moises</p>
+                <p class="m-0">{{ paciente.nombre }}</p>
             </article>
             <article class="bg-white rounded-5 py-3 px-4">
-                <h6 class="m-0 text-secondary">Apellido Paterno</h6>
-                <p class="m-0">Ponce</p>
-            </article>
-            <article class="bg-white rounded-5 py-3 px-4">
-                <h6 class="m-0 text-secondary">Apellido Materno</h6>
-                <p class="m-0">Quispe</p>
+                <h6 class="m-0 text-secondary">Apellido</h6>
+                <p class="m-0">{{ paciente.apellido }}</p>
             </article>
             <article class="bg-white rounded-5 py-3 px-4">
                 <h6 class="m-0 text-secondary">Dni</h6>
-                <p class="m-0">76588453</p>
+                <p class="m-0">{{ paciente.ndoc_documento }}</p>
             </article>
             <article class="bg-white rounded-5 py-3 px-4">
                 <h6 class="m-0 text-secondary">Telefono</h6>
-                <p class="m-0">982431434</p>
+                <p class="m-0">{{ paciente.telefeno }}</p>
             </article>
             <article class="bg-white rounded-5 py-3 px-4">
                 <h6 class="m-0 text-secondary">Correo</h6>
-                <p class="m-0">brayan.ponce@upeu.edu.pe</p>
+                <p class="m-0">{{ paciente.correo }}</p>
             </article>
             <article class="bg-white rounded-5 py-3 px-4">
                 <h6 class="m-0 text-secondary">Edad</h6>
-                <p class="m-0">19</p>
+                <p class="m-0">{{ encontrarEdad(paciente.fecha_nac) }}</p>
             </article>
         </div>
         <span class="btn btn-primary">Registrar</span>

@@ -19,4 +19,8 @@ export class PacienteService {
     return this.http.get<Paciente[]>(`${this.PACIENTEURL}/all`);
   }
 
+  getPaciente(id: number): Observable<Paciente> {
+    return this.http.get<Paciente>(`${this.PACIENTEURL}/one/${id}`);
+  }
+
 }

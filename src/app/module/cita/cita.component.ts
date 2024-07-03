@@ -15,7 +15,7 @@ import { PacienteService } from 'src/app/core/services/paciente.service';
 export class CitaComponent implements OnInit, OnDestroy {
 
   pacientes: Paciente[] = [];
-  filteredPacientes: Paciente[] = [];
+  filteredPacientes: string[] = [];
   selectedPaciente: any;
   showDropdown = false;
 
@@ -59,7 +59,7 @@ export class CitaComponent implements OnInit, OnDestroy {
     this.PacienteSrv.listarpacientes()
     .subscribe(data => {
       this.pacientes = data;
-      this.filteredPacientes = [...this.pacientes];  // Copia inicial para filtrar
+      this.filteredPacientes = this.pacientes.map(paciente => paciente.nombre + " " + paciente.apellido);
       console.log('Pacientes:', this.pacientes);  // Verifica que los datos están llegando
     }, error => {
       console.error('Error al listar pacientes:', error);
@@ -73,13 +73,15 @@ export class CitaComponent implements OnInit, OnDestroy {
     this.modalPacienteSubcription.unsubscribe();
   }
   filterPacientes() {
+    const nombre_completo = this.pacientes.map(paciente => paciente.nombre + " " + paciente.apellido);
     const filterValue = (document.getElementById('inputPaciente') as HTMLInputElement).value.toLowerCase();
-    this.filteredPacientes = this.pacientes.filter(paciente => paciente.nombre.toLowerCase().startsWith(filterValue));
+    this.filteredPacientes = nombre_completo.filter(paciente => paciente.toLowerCase().startsWith(filterValue));
+    console.log(nombre_completo);
   }
 
-  selectPaciente(pacientes: Paciente) {
+  selectPaciente(pacientes: string) {
     this.selectedPaciente = pacientes;
-    (document.getElementById('inputPaciente') as HTMLInputElement).value = pacientes.nombre;
+    (document.getElementById('inputPaciente') as HTMLInputElement).value = pacientes;
     this.showDropdown = false; // Oculta el dropdown después de seleccionar
   }
 

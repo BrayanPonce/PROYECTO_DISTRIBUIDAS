@@ -21,11 +21,11 @@ const routes: Routes = [
             loadChildren: () => import('../paciente/paciente.module').then(m => m.PacienteModule)
           },
           {
-            path: 'historial-clinico',
+            path: 'historial-clinico/:id',
             loadChildren: () => import('../iclinico/iclinico.module').then(m => m.IClinicoModule)
           },
           {
-            path: 'historial-clinico/sesion',
+            path: 'historial-clinico/:id/sesion',
             loadChildren: () => import('../sesion/sesion.module').then(m => m.SesionModule)
           },
           {
