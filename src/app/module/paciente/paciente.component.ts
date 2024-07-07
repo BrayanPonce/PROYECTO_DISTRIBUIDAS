@@ -161,7 +161,6 @@ export class PacienteComponent {
       });
     } else {
       console.log('Formulario inválido');
-    }
-  }
-
+    }
+  }
 }

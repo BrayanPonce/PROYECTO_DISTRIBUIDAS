@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class CitasService {
 
+  private NEWCITA = 'http://localhost:7272/api/cita'
   private CITAURL = environment.baseURL + 'cita';
 
   constructor(private http: HttpClient) { }
@@ -16,7 +17,7 @@ export class CitasService {
   ////////////////////////////////////////////////////
 
   listarCitas(): Observable<Cita[]> {
-    return this.http.get<Cita[]>(`${this.CITAURL}/buscar-todas-citas-con-pacientes`);
+    return this.http.get<Cita[]>(`${this.NEWCITA}/buscar-todas-citas-con-pacientes`);
   }
 
   buscarCita(cita: Cita): Observable<Cita> {

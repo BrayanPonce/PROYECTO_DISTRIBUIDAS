@@ -7,8 +7,10 @@ import { Paciente } from '../index.model.interface';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PacienteService {
 
+  private newPacienteURL  = 'http://localhost:7171/api/paciente'
   private PACIENTEURL = environment.baseURL + 'paciente';
 
   constructor( private http: HttpClient) { }
@@ -16,16 +18,16 @@ export class PacienteService {
   ////////////////////////////////////////////////////
 
   listarpacientes(): Observable<Paciente[]> {
-    return this.http.get<Paciente[]>(`${this.PACIENTEURL}/all`);
+    return this.http.get<Paciente[]>(`${this.newPacienteURL}/all`);
   }
 
   getPaciente(id: number): Observable<Paciente> {
-    return this.http.get<Paciente>(`${this.PACIENTEURL}/one/${id}`);
+    return this.http.get<Paciente>(`${this.newPacienteURL}/one/${id}`);
   }
 
   crearPaciente(paciente: Paciente): Observable<Paciente> {
-    return this.http.post<Paciente>(`${this.PACIENTEURL}/save`, paciente);
-  }
+    return this.http.post<Paciente>(`${this.newPacienteURL}/save`,paciente);
+  }
 
 }
 
